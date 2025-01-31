@@ -6,3 +6,6 @@
 
 3. Connceting DB
 -connecting supabase with the project using prisma
+
+4. Database seed
+-making a script to put dummy data to database
