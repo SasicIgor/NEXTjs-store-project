@@ -9,3 +9,7 @@
 
 4. Database seed
 -making a script to put dummy data to database
+
+5. Featured products
+-displaying first products, using card component from shadcn. 
+-Adding disconnect from db to avoid error while fetching

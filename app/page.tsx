@@ -1,5 +1,10 @@
+import FeaturedProducts from "@/components/home/FeaturedProducts";
+
+
 const HomePage = () => {
-  return <p>Home Page</p>;
+  return <>
+  <FeaturedProducts/>
+  </>;
 };
 
 export default HomePage;
