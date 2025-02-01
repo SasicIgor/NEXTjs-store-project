@@ -13,3 +13,5 @@
 5. Featured products
 -displaying first products, using card component from shadcn. 
 -Adding disconnect from db to avoid error while fetching
+
+6. Hero and caroussel component
