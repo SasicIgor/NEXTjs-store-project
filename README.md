@@ -15,3 +15,13 @@
 -Adding disconnect from db to avoid error while fetching
 
 6. Hero and caroussel component
+
+7. All products and single product component
+-displaying all products on products page
+-loading component with card skeleton
+-displaying as a grid or as list (two different components)
+-implementing search input
+
+-dynamic single product page
+-action to call single product content
+-breadcrumbs component
