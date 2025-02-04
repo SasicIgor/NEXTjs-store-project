@@ -25,3 +25,10 @@
 -dynamic single product page
 -action to call single product content
 -breadcrumbs component
+
+8. Auth with clerk
+-sign in and out user using clerk
+-protecting private routes with middleware
+-spliting dropdown menu and theme toggle in 2 components
+-caching featured products instead of disconnecting prisma
+-toaster

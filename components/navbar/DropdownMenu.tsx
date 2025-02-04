@@ -1,69 +1,59 @@
-"use client";
-
 import * as React from "react";
-import { MoonIcon, SunIcon, LucideAlignLeft } from "lucide-react";
-import { useTheme } from "next-themes";
+import { LucideAlignLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSeparator
 } from "@/components/ui/dropdown-menu";
 import { links } from "@/utils/links";
 import Link from "next/link";
+import UserIcon from "./UserIcon";
+import { SignedIn, SignedOut, SignInButton, SignUpButton } from "@clerk/nextjs";
+import SignOut from "./SignOut";
 
-export default function DropdownMenuToggle({
-  type,
-}: {
-  type: "theme" | "menu";
-}) {
-  const { setTheme } = useTheme();
+export default function DropdownMenuToggle() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        {type === "theme" ? (
-          // dropdown trigger to choose a theme
-
-          <Button variant="outline" size="icon">
-            <SunIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-            <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-            <span className="sr-only">Toggle theme</span>
-          </Button>
-        ) : (
-          // dropdown triger to activate the menu
-          
-          <Button variant="outline" className="max-w-[100px]">
-            <LucideAlignLeft className="w-6 h-6" />
-          </Button>
-        )}
+        <Button variant="outline" className="max-w-[100px]">
+          <LucideAlignLeft className="w-6 h-6" />
+          <UserIcon/> 
+        </Button>
       </DropdownMenuTrigger>
-      {type === "theme" ? (
-        //dropdown content for a theme
 
-        <DropdownMenuContent align="end">
-          <DropdownMenuItem onClick={() => setTheme("light")}>
-            Light
+      {/* when user is not logged in */}
+      <DropdownMenuContent className="w-40" align="start" sideOffset={10}>
+        <SignedOut>
+          <DropdownMenuItem>
+            <SignInButton mode="modal">
+              <button className="w-full text-left">Login</button>
+            </SignInButton>
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => setTheme("dark")}>
-            Dark
+          <DropdownMenuItem>
+            <SignUpButton>
+              <button className="w-full text-left">Register</button>
+            </SignUpButton>
           </DropdownMenuItem>
-        </DropdownMenuContent>
-      ) : (
-        //dropdown content for menu
-
-        <DropdownMenuContent className="w-40" align="start" sideOffset={10}>
+        </SignedOut>
+        <SignedIn>
           {links.map((link) => {
             return (
-              <DropdownMenuItem key={link.href}>
+              <DropdownMenuItem key={link.href} asChild>
                 <Link href={link.href} className="capitalize w-full">
                   {link.label}
                 </Link>
               </DropdownMenuItem>
             );
           })}
-        </DropdownMenuContent>
-      )}
+          <DropdownMenuSeparator />
+          <DropdownMenuItem>
+            <SignOut />
+          </DropdownMenuItem>
+        </SignedIn>
+      </DropdownMenuContent>
     </DropdownMenu>
   );
 }

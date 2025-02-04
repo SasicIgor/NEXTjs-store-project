@@ -4,6 +4,7 @@ import CartButton from "./CartButton";
 import DropdownMenuToggle from "./DropdownMenu";
 import Logo from "./Logo";
 import NavSearch from "./NavSearch";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   return (
@@ -15,8 +16,8 @@ const Navbar = () => {
         </Suspense>
         <div className="flex gap-4 items-center">
           <CartButton />
-          <DropdownMenuToggle type="theme" />
-          <DropdownMenuToggle type="menu" />
+          <ThemeToggle />
+          <DropdownMenuToggle />
         </div>
       </Container>
     </nav>
