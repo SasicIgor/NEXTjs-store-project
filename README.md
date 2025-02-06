@@ -32,3 +32,9 @@
 -spliting dropdown menu and theme toggle in 2 components
 -caching featured products instead of disconnecting prisma
 -toaster
+
+9. Admin create product
+-creating input component and wraping it in form container
+-action to create product
+-validating products inputs with zod
+-

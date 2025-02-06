@@ -6,21 +6,25 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-  DropdownMenuSeparator
+  DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { links } from "@/utils/links";
 import Link from "next/link";
 import UserIcon from "./UserIcon";
 import { SignedIn, SignedOut, SignInButton, SignUpButton } from "@clerk/nextjs";
 import SignOut from "./SignOut";
+import { auth } from "@clerk/nextjs/server";
+import { isAdminUser } from "@/utils/isAdmin";
 
-export default function DropdownMenuToggle() {
+export default async function DropdownMenuToggle() {
+  const { userId } = await auth();
+  const isAdmin = await isAdminUser(userId);
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" className="max-w-[100px]">
           <LucideAlignLeft className="w-6 h-6" />
-          <UserIcon/> 
+          <UserIcon />
         </Button>
       </DropdownMenuTrigger>
 
@@ -38,8 +42,10 @@ export default function DropdownMenuToggle() {
             </SignUpButton>
           </DropdownMenuItem>
         </SignedOut>
+        {/* when user is logged in */}
         <SignedIn>
           {links.map((link) => {
+            if (link.label === "dashboard" && !isAdmin) return null;
             return (
               <DropdownMenuItem key={link.href} asChild>
                 <Link href={link.href} className="capitalize w-full">
