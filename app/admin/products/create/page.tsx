@@ -12,17 +12,17 @@ const CreateProductPage = () => {
       <div className="border p-8 rounded-md">
         <FormContainer action={createProductAction}>
           <div className="grid gap-4 md:grid-cols-2 my-4">
-            <FormInput name="name" label="product name" placeholder={"shoes"} />
+            <FormInput name="name" label="product name" placeholder="shoes" defaultValue="sneakers" />
             <FormInput
               name="company"
               label="company"
-              placeholder={"Forma Ideale"}
+              placeholder="Forma Ideale"
             />
             <FormInput
               name="price"
-              placeholder="300"
               type="number"
               label="Price ($)"
+              defaultValue="1234"
             />
             <FormInput name="image" type="file" />
           </div>

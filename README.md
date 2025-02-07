@@ -37,4 +37,8 @@
 -creating input component and wraping it in form container
 -action to create product
 -validating products inputs with zod
--
+
+10. Admin overview and edit, favorites
+-page for admin to overview of the products, as well as delete and edit option
+-separate logic to edit image
+-favorites page, dynamic button for favorite products, prisma db model
