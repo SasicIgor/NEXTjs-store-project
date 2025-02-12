@@ -1,8 +1,11 @@
 import FavoriteToggleButton from "@/components/products/FavoriteToggleButton";
+import ProductReviews from "@/components/reviews/ProductReviews";
+import SubmitReview from "@/components/reviews/SubmitReview";
 import AddToCart from "@/components/single-product/AddToCart";
 import BreadCrumbs from "@/components/single-product/BreadCrumbs";
 import ProductRating from "@/components/single-product/ProductRating";
-import { fetchSingleProduct } from "@/utils/actions";
+import { fetchSingleProduct, findExistingReview } from "@/utils/actions";
+import { auth } from "@clerk/nextjs/server";
 import Image from "next/image";
 
 const SingleProductPage = async ({
@@ -13,6 +16,9 @@ const SingleProductPage = async ({
   const { id } = await params;
   const product = await fetchSingleProduct({ id });
   const { name, image, company, description, price } = product;
+  const { userId } = await auth();
+  const reviewDoesNotExist =
+    userId && !(await findExistingReview(userId, product.id));
 
   return (
     <section>
@@ -33,7 +39,7 @@ const SingleProductPage = async ({
             <h1 className="capitalize text-3xl font-bold">{name}</h1>
             <FavoriteToggleButton productId={id} />
           </div>
-          <ProductRating id={id} />
+          <ProductRating productId={id} />
           <h4 className="text-xl mt-2">{company}</h4>
           <p className="mt-3 text-md bg-muted inline-block p-2 rounded">
             {`$${price}`}
@@ -42,6 +48,8 @@ const SingleProductPage = async ({
           <AddToCart id={id} />
         </div>
       </div>
+      <ProductReviews productId={id} />
+      {reviewDoesNotExist && <SubmitReview productId={id} />}
     </section>
   );
 };

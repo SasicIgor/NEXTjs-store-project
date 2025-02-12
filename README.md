@@ -42,3 +42,9 @@
 -page for admin to overview of the products, as well as delete and edit option
 -separate logic to edit image
 -favorites page, dynamic button for favorite products, prisma db model
+
+11. Review feature and functionality across the app
+-option to review the product only once if you are logged in
+-prisma model and connect one (product) to many (reviews)
+-fetching and displaying users reviews
+-validation with zod schemas
