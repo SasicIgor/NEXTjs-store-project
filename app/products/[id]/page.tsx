@@ -45,7 +45,7 @@ const SingleProductPage = async ({
             {`$${price}`}
           </p>
           <p className="mt-6 leading-8 text-muted-foreground">{description} </p>
-          <AddToCart id={id} />
+          <AddToCart productId={id} />
         </div>
       </div>
       <ProductReviews productId={id} />
