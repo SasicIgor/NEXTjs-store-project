@@ -51,3 +51,8 @@
 
 12. Cart functionality
 
+13. Payment with Stripe
+-setting up checkout page
+-sending requests with secret key
+-rendering orders for users
+-rendering orders for admins
