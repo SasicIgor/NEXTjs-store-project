@@ -48,3 +48,6 @@
 -prisma model and connect one (product) to many (reviews)
 -fetching and displaying users reviews
 -validation with zod schemas
+
+12. Cart functionality
+
