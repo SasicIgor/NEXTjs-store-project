@@ -3,7 +3,7 @@ import CheckboxInput from "@/components/form/CheckboxInput";
 import FormContainer from "@/components/form/FormContainer";
 import FormInput from "@/components/form/FormInput";
 import TextAreaInput from "@/components/form/TextAreaInput";
-import { createProductAction } from "@/utils/actions";
+import { createProductAction } from "@/utils/actions/productsActions";
 
 const CreateProductPage = () => {
   return (

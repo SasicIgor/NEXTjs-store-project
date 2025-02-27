@@ -6,7 +6,7 @@ import SelectProductAmount from "./SelectProductAmount";
 import { Mode } from "@/components/single-product/SelectProductAmount";
 import { ProductSignInButton, SubmitButton } from "../form/Buttons";
 import FormContainer from "../form/FormContainer";
-import { addToCartAction } from "@/utils/actions";
+import { addToCartAction } from "@/utils/actions/cartActions";
 
 const AddToCart = ({ productId }: { productId: string }) => {
   const [amount, setAmount] = useState(1);

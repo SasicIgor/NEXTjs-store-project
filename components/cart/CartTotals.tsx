@@ -2,7 +2,7 @@ import { Cart } from "@prisma/client";
 import { Separator } from "../ui/separator";
 import { Card, CardTitle } from "../ui/card";
 import FormContainer from "../form/FormContainer";
-import { createOrderAction } from "@/utils/actions";
+import { createOrderAction } from "@/utils/actions/orderActions";
 import { SubmitButton } from "../form/Buttons";
 
 const CartTotals = ({ cart }: { cart: Cart }) => {

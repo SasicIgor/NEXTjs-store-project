@@ -4,7 +4,8 @@ import SubmitReview from "@/components/reviews/SubmitReview";
 import AddToCart from "@/components/single-product/AddToCart";
 import BreadCrumbs from "@/components/single-product/BreadCrumbs";
 import ProductRating from "@/components/single-product/ProductRating";
-import { fetchSingleProduct, findExistingReview } from "@/utils/actions";
+import { fetchSingleProduct } from "@/utils/actions/productsActions";
+import { findExistingReview } from "@/utils/actions/reviewActions";
 import { auth } from "@clerk/nextjs/server";
 import Image from "next/image";
 

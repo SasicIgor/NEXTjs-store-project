@@ -1,4 +1,4 @@
-import { fetchAllProcuts } from "@/utils/actions";
+import { fetchAllProcuts } from "@/utils/actions/productsActions";
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
 import ProductsGrid from "./ProductsGrid";

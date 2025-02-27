@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { fetchUserOrders } from "@/utils/actions";
+import { fetchUserOrders } from "@/utils/actions/orderActions";
 import { formatDate } from "@/utils/format";
 
 const OrdersPage = async () => {

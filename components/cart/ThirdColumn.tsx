@@ -4,7 +4,10 @@ import { useState } from "react";
 import { Mode } from "../single-product/SelectProductAmount";
 import SelectProductAmount from "../single-product/SelectProductAmount";
 import FormContainer from "../form/FormContainer";
-import { removeCartItemAction, updateCartItemAction } from "@/utils/actions";
+import {
+  removeCartItemAction,
+  updateCartItemAction,
+} from "@/utils/actions/cartActions";
 import { SubmitButton } from "../form/Buttons";
 import { useToast } from "@/hooks/use-toast";
 
@@ -13,7 +16,7 @@ const ThirdColumn = ({ quantity, id }: { quantity: number; id: string }) => {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
   const handleAmountChange = async (value: number) => {
-    setIsLoading(true);
+    setIsLoading(!isLoading);
     toast({ description: "Calculating..." });
     const result = await updateCartItemAction({
       amount: value,
@@ -21,7 +24,7 @@ const ThirdColumn = ({ quantity, id }: { quantity: number; id: string }) => {
     });
     setAmount(value);
     toast({ description: result.message });
-    setIsLoading(false);
+    setIsLoading(!isLoading);
   };
   return (
     <div className="md:ml-8">

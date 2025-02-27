@@ -1,4 +1,4 @@
-import { fetchProductRating } from "@/utils/actions";
+import { fetchProductRating } from "@/utils/actions/reviewActions";
 import { FaStar } from "react-icons/fa";
 
 const ProductRating = async ({ productId }: { productId: string }) => {

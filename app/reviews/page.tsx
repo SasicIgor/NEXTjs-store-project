@@ -2,7 +2,7 @@ import { IconButton } from "@/components/form/Buttons";
 import FormContainer from "@/components/form/FormContainer";
 import SectionTitle from "@/components/global/SectionTitle";
 import ReviewCard from "@/components/reviews/ReviewCard";
-import { deleteReviewAction, fetchProductReviewsByUser } from "@/utils/actions";
+import { deleteReviewAction, fetchProductReviewsByUser } from "@/utils/actions/reviewActions";
 
 const ReviewsPage = async () => {
   const reviews = await fetchProductReviewsByUser();

@@ -6,7 +6,7 @@ import { Card } from "../ui/card";
 import RatingInput from "./RatingInput";
 import TextAreaInput from "../form/TextAreaInput";
 import { Button } from "../ui/button";
-import { createReviewAction } from "@/utils/actions";
+import { createReviewAction } from "@/utils/actions/reviewActions";
 import { useUser } from "@clerk/nextjs";
 
 const SubmitReview = ({ productId }: { productId: string }) => {

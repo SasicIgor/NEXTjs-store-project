@@ -10,7 +10,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { deleteProductAction, fetchAdminProducts } from "@/utils/actions";
+import { deleteProductAction, fetchAdminProducts } from "@/utils/actions/productsActions";
 import Link from "next/link";
 
 const ProductsPage = async () => {

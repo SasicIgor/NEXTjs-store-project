@@ -4,14 +4,20 @@ import FormContainer from "@/components/form/FormContainer";
 import FormInput from "@/components/form/FormInput";
 import ImageInputContainer from "@/components/form/ImageInputContainer";
 import TextAreaInput from "@/components/form/TextAreaInput";
-import { fetchAdminProductDetails, updateProductAction, updateProductImageAction } from "@/utils/actions";
+import {
+  fetchAdminProductDetails,
+  updateProductAction,
+  updateProductImageAction,
+} from "@/utils/actions/productsActions";
 
-const EditProductPage = async ({ params }: { params: { id: string } }) => {
+const EditProductPage = async ({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) => {
   const { id } = await params;
   const product = await fetchAdminProductDetails(id);
-  console.log(product);
-  const { name, company, description, featured, price } = await product;
-  console.log(name);
+  const { name, company, description, featured, price } = product;
   return (
     <section>
       <h1 className="text-2xl font-semibold mb-8 capitalize">update product</h1>
